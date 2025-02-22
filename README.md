@@ -14,7 +14,6 @@ Click on a plot to generate and record sample data for Nitrogen (mg/kg), Phospho
 table below the plots.
 4. **Download Data:** Users can download their sampled data as a CSV file by clicking 
 the "Download CSV" button.
-5. **Reset:** The "Reset" button clears all data and resets the plots for a fresh start.
 
 ## Installation
 Ensure you have R installed on your system. If necessary, install the required packages by running:
