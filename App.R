@@ -21,8 +21,6 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       textOutput("team_number_display"),
-      br(),
-      actionButton("reset", "Reset"),
       br(), br(),
       downloadButton("downloadData", "Download CSV"),
       br(), br(),
@@ -98,20 +96,6 @@ server <- function(input, output, session) {
     datatable(samples()[order(samples()$Plot),], 
               options = list(pageLength = 20),
               caption = 'Soil Sample Data (Nitrogen = mg/kg, Phosphorus = mg/kg, Moisture = %)')
-  })
-  
-  # Reset button
-  observeEvent(input$reset, {
-    samples(data.frame(
-      Plot = numeric(0),
-      Nitrogen = numeric(0),
-      Phosphorus = numeric(0),
-      Moisture = numeric(0)
-    ))
-    set.seed(as.numeric(team_number()))
-    lapply(1:20, function(i) {
-      updateActionButton(session, paste0("plot", i), label = "", style="background-color:#8B4513; height:80px; width:100%; margin-bottom:10px;")
-    })
   })
   
   # Download CSV
