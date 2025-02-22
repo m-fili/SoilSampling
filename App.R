@@ -15,7 +15,6 @@ library(DT)
 
 # Define the UI
 ui <- fluidPage(
-  useShinyjs(),
   titlePanel("Soil Sample Generator"),
   
   sidebarLayout(
