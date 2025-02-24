@@ -92,7 +92,7 @@ server <- function(input, output, session) {
   
   # Render the table of samples
   output$sample_table <- renderDT({
-    datatable(samples()[order(samples()$Plot),], 
+    datatable(samples(), 
               options = list(pageLength = 20),
               caption = 'Soil Sample Data (Nitrogen = mg/kg, Phosphorus = mg/kg, Moisture = %)')
   })
@@ -103,7 +103,7 @@ server <- function(input, output, session) {
       paste("soil_samples_team", team_number(), "_", Sys.Date(), ".csv", sep = "")
     },
     content = function(file) {
-      write.csv(samples()[order(samples()$Plot),], file, row.names = FALSE)
+      write.csv(samples(), file, row.names = FALSE)
     }
   )
 }
